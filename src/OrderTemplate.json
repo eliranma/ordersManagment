@@ -1,0 +1,151 @@
+
+[{
+   "idPrinter":5,
+   "idDeal":10006358,
+   "dealType":1,
+   "data":[
+      {
+         "barcode":"000046",
+         "name":"קרואסון שוקולד",
+         "iid":1,
+         "pid":0,
+         "count":1.0,
+         "seatId":0
+      },
+      {
+         "barcode":"000047",
+         "name":"דניש קנמון",
+         "iid":2,
+         "pid":0,
+         "count":1.0,
+         "seatId":0
+      },
+      {
+         "barcode":"000048",
+         "name":"דניש שוקולד",
+         "iid":3,
+         "pid":0,
+         "count":1.0,
+         "seatId":0
+      },
+      {
+         "barcode":"000053",
+         "name":"מיני עוגיה",
+         "iid":4,
+         "pid":0,
+         "count":1.0,
+         "seatId":0
+      },
+      {
+         "barcode":"000047",
+         "name":"דניש קנמון",
+         "iid":2,
+         "pid":0,
+         "count":1.0,
+         "seatId":0
+      },
+      {
+         "barcode":"000048",
+         "name":"דניש שוקולד",
+         "iid":3,
+         "pid":0,
+         "count":1.0,
+         "seatId":0
+      },
+      {
+         "barcode":"000053",
+         "name":"מיני עוגיה",
+         "iid":4,
+         "pid":0,
+         "count":1.0,
+         "seatId":0
+      }
+   ],
+   "pricelist":"לשבת",
+   "pricelistId":-1
+},
+{
+    "idPrinter":5,
+    "idDeal":10046986,
+    "dealType":1,
+    "data":[
+       {
+          "barcode":"000006",
+          "name":"שווארמה בפיתה",
+          "iid":4,
+          "pid":0,
+          "count":1.0,
+          "seatId":0,
+          "image":"'../assets/pizza.png'"
+       },
+       {
+          "barcode":"000016",
+          "name":"יכעיכעי",
+          "iid":5,
+          "pid":4,
+          "count":1.0,
+          "seatId":0,
+          "image":"../assets/pizza.png"
+       },
+       {
+          "barcode":"000017",
+          "name":"דגכדכג",
+          "iid":6,
+          "pid":4,
+          "count":1.0,
+          "seatId":0,
+          "image":"../assets/pizza.png"
+       },
+       {
+          "barcode":"000047",
+          "name":"דניש קנמון",
+          "iid":2,
+          "pid":0,
+          "count":1.0,
+          "seatId":0
+       },
+       {
+          "barcode":"000048",
+          "name":"דניש שוקולד",
+          "iid":3,
+          "pid":0,
+          "count":1.0,
+          "seatId":0
+       },
+       {
+          "barcode":"000053",
+          "name":"מיני עוגיה",
+          "iid":4,
+          "pid":0,
+          "count":1.0,
+          "seatId":0
+       },
+       {
+          "barcode":"000047",
+          "name":"דניש קנמון",
+          "iid":2,
+          "pid":0,
+          "count":1.0,
+          "seatId":0
+       },
+       {
+          "barcode":"000048",
+          "name":"דניש שוקולד",
+          "iid":3,
+          "pid":0,
+          "count":1.0,
+          "seatId":0
+       },
+       {
+          "barcode":"000053",
+          "name":"מיני עוגיה",
+          "iid":4,
+          "pid":0,
+          "count":1.0,
+          "seatId":0
+       }
+    ],
+      "pricelist":"לשבת",
+    "pricelistId":-1
+ }
+]
