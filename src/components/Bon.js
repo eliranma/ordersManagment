@@ -49,7 +49,6 @@ const useStyles = makeStyles(({ spacing }) => ({
     alignContent: 'center',
     margin:'0 0 0 0',
     display:'flex-wrap',
-    justifyContent:'center',
     top:'0',
     borderRadius:'25px',
   },
