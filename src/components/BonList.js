@@ -8,9 +8,8 @@ const useStyles =makeStyles({
         width:'90vw',
         minHeight:'100vh',
         margin:'auto',
-        display:'grid',
-        gridTemplateColumns:'2fr 2fr',
-        gridGap:'2px'
+        display:'flex',
+        flexDirection:'column'
     }
 })
 const BonList = props => {

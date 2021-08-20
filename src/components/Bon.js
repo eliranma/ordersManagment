@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import cx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -12,7 +12,8 @@ import CardHeader from '@material-ui/core/CardHeader';
 import { useContainedCardHeaderStyles } from '@mui-treasury/styles/cardHeader/contained';
 import { useSoftRiseShadowStyles } from '@mui-treasury/styles/shadow/softRise';
 import { useFadedShadowStyles } from '@mui-treasury/styles/shadow/faded';
-import logo from '../assets/pizza.png'
+import logo from '../assets/pizza.png';
+import TimeElapsed from '../utils/TimeElapsed'
 
 const useStyles = makeStyles(({ spacing }) => ({
   card: {
@@ -21,9 +22,9 @@ const useStyles = makeStyles(({ spacing }) => ({
     borderRadius: spacing(0.5),
     transition: '0.3s',
     display:'flex',
-
+    alignSelf:'center',
     flexDirection: 'column',
-    width: '35vw',
+    width: '70vw',
     overflowY: 'auto',
     overflowX: 'none',
     background: '#ffffff',
@@ -37,17 +38,34 @@ const useStyles = makeStyles(({ spacing }) => ({
     }
   },
   img:{
-    width:'2.5vw',
+    width:'5vw',
+    padding:'0 0 0 0'
   },
   header:{
-    backgroundColor:'red',
-    height:'5vh',
+    backgroundColor:'#C8CBE5',
+    height:'8vh',
     textAlign:'center',
+    alignSelf:'center',
     alignContent: 'center',
     margin:'0 0 0 0',
-    display:'absolute',
+    display:'flex-wrap',
+    justifyContent:'center',
     top:'0',
     borderRadius:'25px',
+  },
+  cardSubHeader:{
+    display:'flex',
+    fontSize:'15px',
+    justifyContent:'space-between',
+    textAlign:'center',
+    color:'black',
+    
+  },
+  cardTitle:{
+    fontSize:'20px',
+    display:'flex',
+    justifyContent:'space-between',
+    color:'black',
   }
 }));
 
@@ -71,24 +89,34 @@ const Bon = (props) => {
   const bonHeaderStyles = useContainedCardHeaderStyles();
   const bonShadowStyles = useSoftRiseShadowStyles({ inactive: true });
   const bonHeaderShadowStyles = useFadedShadowStyles();
-console.log(props)
+  const [hidden, setHidden] = useState(true);
+    const handleClick=()=> (hidden)?setHidden(false):setHidden(true)
+
+  
   return (
     <Card className={cx(classes.card, bonShadowStyles.root)}>
       <CardHeader
+        onClick={handleClick}
         className={cx(bonHeaderShadowStyles.root, classes.header)}
         classes={bonHeaderStyles}
-        title={props.bon.idDeal}
-        subheader={<div>
-            {props.bon.pricelist}
-        </div>}
+        title={<div className={classes.cardTitle}>
+          <p>{props.bon.idDeal}</p>
+          <TimeElapsed />
+          </div>}
+        subheader={
+        <div className={classes.cardSubHeader} >
+            <h6>{props.bon.pricelist}</h6>
+            <p>{(props.bon.data).length} </p>
+        </div>
+        }
       />
-      <CardContent className={classes.content}>
+      <CardContent hidden={hidden} className={classes.content}>
         <Table>
           <TableHead>
             <TableRow>
               <TableCell>{}</TableCell>
-              <TableCell align="right">'שם הפריט'</TableCell>
-              <TableCell align="right">'כמות'</TableCell>
+              <TableCell align="right">שם הפריט</TableCell>
+              <TableCell align="right">כמות</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
