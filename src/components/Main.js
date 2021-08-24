@@ -1,7 +1,9 @@
-import db from '../OrderTemplate.json';
-import React from 'react';
+// import db from '../OrderTemplate.json';
+import React, {useEffect, useState} from 'react';
 import BonList from './BonList';
 import { makeStyles} from '@material-ui/core/styles';
+import {firestore} from '../firebase/firebase.util';
+
 
 const useStyles =makeStyles({
     root:{
@@ -13,10 +15,18 @@ const useStyles =makeStyles({
 
 
 const Main = () => {
+    const [liveOrders, setLiveOrders] = useState([]);
+    useEffect(()=>{
+        const db = async ()=>{
+            setLiveOrders(await firestore.collection('liveOrders').get())
+
+        };
+        console.log(liveOrders)
+    }, [liveOrders])
     const classes = useStyles();
     return(
         <div className={classes.root}>
-        <BonList bons={db} />
+        <BonList bons={liveOrders} />
         </div>
     )
 }
