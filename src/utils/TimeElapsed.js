@@ -5,26 +5,47 @@ const useStyles = makeStyles(() => ({
         display:'flex',
         justifyContent:'space-between',
         flexDirection:'row',
+        direction:'rtl',
         width:'5vw',
+        paddingRight:'5',
+        alignSelf:'center',
         lineHeight:'0.75rem',
-        fontSize:'10px'
+        fontSize:'15px'
     }
 }))
 
 
-const TimeElapsed = () => {
+const TimeElapsed = (min, sec) => {
+    const [second, setSecond] = useState('00');
+    const [minute, setMinute] = useState('00');
+    const [isActive, setIsActive] = useState(true);
     const [counter, setCounter] = useState(0);
     const classes = useStyles();
-    useEffect(()=>{
-        let myInterval = setInterval(()=>{
-            setCounter(counter+1)    
-        })
+    useEffect(() => {
+        let intervalId;
 
-    },1000)
+        if (isActive) {
+          intervalId = setInterval(() => {
+            const secondCounter = counter % 60;
+            const minuteCounter = Math.floor(counter / 60);
+
+            const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}`: secondCounter;
+            const computedMinute = String(minuteCounter).length === 1 ? `0${minuteCounter}`: minuteCounter;
+
+            setSecond(computedSecond);
+            setMinute(computedMinute);
+
+            setCounter(counter => counter + 1);
+          }, 1000)
+        }
+          return () => clearInterval(intervalId);
+  }, [isActive, counter])
+    min=minute;
+    sec=second;
     return(
         <div className={classes.root}>
             <p>זמן שעבר:</p>
-            <p>{counter}</p>
+            <p>{minute}:{second}</p>
         </div>
     )
 };

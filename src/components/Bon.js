@@ -19,26 +19,28 @@ const useStyles = makeStyles(({ spacing }) => ({
   card: {
     marginTop: 10,
     maxHeight:'50vh',
-    borderRadius: spacing(0.5),
+    borderRadius: 25,
     transition: '0.3s',
     display:'flex',
     alignSelf:'center',
     flexDirection: 'column',
     width: '70vw',
+    overflow: 'hidden',
     overflowY: 'auto',
     overflowX: 'none',
-    background: '#ffffff',
+    background: ''
   },
   content: {
     paddingTop: 0,
     textAlign: 'center',
+    transition: '1.3s',
     overflowY: 'auto',
     '& table': {
       marginBottom: 0,
     }
   },
   img:{
-    width:'5vw',
+    width:'2vw',
     padding:'0 0 0 0'
   },
   header:{
@@ -46,11 +48,13 @@ const useStyles = makeStyles(({ spacing }) => ({
     height:'8vh',
     textAlign:'center',
     alignSelf:'center',
+    width:'68vw',
     alignContent: 'center',
     margin:'0 0 0 0',
     display:'flex-wrap',
     top:'0',
     borderRadius:'25px',
+    overflow:'hidden',
   },
   cardSubHeader:{
     display:'flex',
@@ -58,30 +62,18 @@ const useStyles = makeStyles(({ spacing }) => ({
     justifyContent:'space-between',
     textAlign:'center',
     color:'black',
-    
+
   },
   cardTitle:{
     fontSize:'20px',
+    width:'',
     display:'flex',
     justifyContent:'space-between',
     color:'black',
   }
 }));
 
-// let id = 0;
-// const createData=(name, count)=>{
-//   id += 1;
-//   return { id, name, count };
-// }
 
-// const rows = [
-//   // comment
-//   createData('Frozen yoghurt', 159, 4.0),
-//   createData('Ice cream sandwich', 237, 4.3),
-//   createData('Eclair', 16.0, 6.0),
-//   createData('Cupcake', 3.7, 4.3),
-//   createData('Gingerbread', 16.0, 3.9),
-// ];
 
 const Bon = (props) => {
   const classes = useStyles();
@@ -89,11 +81,12 @@ const Bon = (props) => {
   const bonShadowStyles = useSoftRiseShadowStyles({ inactive: true });
   const bonHeaderShadowStyles = useFadedShadowStyles();
   const [hidden, setHidden] = useState(true);
+  const [orderHidden, setOrderHidden] = useState(false);
     const handleClick=()=> (hidden)?setHidden(false):setHidden(true)
 
-  
+
   return (
-    <Card className={cx(classes.card, bonShadowStyles.root)}>
+    <Card hidden={orderHidden} className={cx(classes.card, bonShadowStyles.root)}>
       <CardHeader
         onClick={handleClick}
         className={cx(bonHeaderShadowStyles.root, classes.header)}
